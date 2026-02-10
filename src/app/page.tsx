@@ -176,8 +176,16 @@ export default function HomePage() {
               key={skill.id}
               className="bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 hover:border-primary hover:-translate-y-2 transition-all cursor-pointer group"
             >
-              <div className="text-5xl mb-4 filter grayscale group-hover:grayscale-0 transition-all">
-                {skill.icon || '💻'}
+              <div className="text-5xl mb-4 filter grayscale group-hover:grayscale-0 transition-all flex items-center justify-center">
+                {skill.icon_url ? (
+                  <img
+                    src={skill.icon_url}
+                    alt={skill.name}
+                    className="w-12 h-12 object-contain"
+                  />
+                ) : (
+                  skill.icon || '💻'
+                )}
               </div>
               <div className="font-semibold">{skill.name}</div>
             </div>

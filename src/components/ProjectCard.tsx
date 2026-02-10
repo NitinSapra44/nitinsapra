@@ -9,17 +9,25 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-primary hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 transition-all group h-full">
       <div
-        className="h-64 relative flex items-center justify-center text-7xl"
-        style={{
+        className="h-64 relative flex items-center justify-center text-7xl overflow-hidden"
+        style={!project.image_url ? {
           background:
             index % 3 === 0
               ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
               : index % 3 === 1
               ? 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'
               : 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-        }}
+        } : undefined}
       >
-        {project.project_type === 'web' ? '🌐' : '📱'}
+        {project.image_url ? (
+          <img
+            src={project.image_url}
+            alt={project.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+        ) : (
+          project.project_type === 'web' ? '🌐' : '📱'
+        )}
         <span className="absolute top-4 right-4 px-4 py-2 bg-black/80 rounded-full text-xs font-mono uppercase tracking-wider">
           {project.project_type}
         </span>
@@ -32,7 +40,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <p className="text-primary font-semibold mb-4">{project.subtitle}</p>
         )}
         <div
-          className="text-gray-400 mb-6 line-clamp-3 prose prose-invert prose-sm"
+          className="text-white mb-6 line-clamp-3 prose prose-invert prose-sm"
           dangerouslySetInnerHTML={{ __html: project.description }}
         />
 
