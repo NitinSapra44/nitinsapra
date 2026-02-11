@@ -9,6 +9,8 @@ export interface About {
   email?: string;
   linkedin_url?: string;
   github_url?: string;
+  upwork_url?: string;
+  fiverr_url?: string;
   resume_url?: string;
   years_experience: number;
   total_projects: number;
@@ -78,6 +80,8 @@ export interface AboutFormData {
   email?: string;
   linkedin_url?: string;
   github_url?: string;
+  upwork_url?: string;
+  fiverr_url?: string;
   resume_url?: string;
   years_experience: number;
   total_projects: number;

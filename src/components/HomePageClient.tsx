@@ -7,6 +7,8 @@ import Image from 'next/image';
 import Carousel from '@/components/Carousel';
 import ProjectCard from '@/components/ProjectCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
+import { SiUpwork, SiFiverr } from 'react-icons/si';
 
 interface HomePageClientProps {
   about: About | null;
@@ -110,6 +112,54 @@ export default function HomePageClient({
               >
                 Let&apos;s Talk
               </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-8">
+              {about?.linkedin_url && (
+                <a
+                  href={about.linkedin_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all hover:-translate-y-1"
+                >
+                  <FaLinkedinIn className="text-lg" />
+                </a>
+              )}
+              {about?.github_url && (
+                <a
+                  href={about.github_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  className="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all hover:-translate-y-1"
+                >
+                  <FaGithub className="text-lg" />
+                </a>
+              )}
+              {about?.upwork_url && (
+                <a
+                  href={about.upwork_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Upwork"
+                  className="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#14A800] hover:bg-[#14A800]/10 transition-all hover:-translate-y-1"
+                >
+                  <SiUpwork className="text-lg" />
+                </a>
+              )}
+              {about?.fiverr_url && (
+                <a
+                  href={about.fiverr_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Fiverr"
+                  className="w-11 h-11 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#1DBF73] hover:bg-[#1DBF73]/10 transition-all hover:-translate-y-1"
+                >
+                  <SiFiverr className="text-lg" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -289,20 +339,49 @@ export default function HomePageClient({
 
       {/* Footer */}
       <footer aria-label="Site footer" className="px-4 sm:px-8 md:px-16 py-8 md:py-12 bg-[#0a0a0a] border-t border-white/10 text-center">
-        <div className="flex justify-center gap-4 sm:gap-6 md:gap-8 mb-6 md:mb-8 text-gray-400 flex-wrap">
+        <div className="flex justify-center gap-5 sm:gap-6 mb-6 md:mb-8">
           {about?.linkedin_url && (
-            <a href={about.linkedin_url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg md:text-2xl">
-              🔗 LinkedIn
+            <a
+              href={about.linkedin_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all"
+            >
+              <FaLinkedinIn className="text-xl" />
             </a>
           )}
           {about?.github_url && (
-            <a href={about.github_url} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-lg md:text-2xl">
-              💻 GitHub
+            <a
+              href={about.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-white/40 hover:bg-white/10 transition-all"
+            >
+              <FaGithub className="text-xl" />
             </a>
           )}
-          {about?.email && (
-            <a href={`mailto:${about.email}`} className="hover:text-primary transition-colors text-lg md:text-2xl">
-              📧 Email
+          {about?.upwork_url && (
+            <a
+              href={about.upwork_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Upwork"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#14A800] hover:bg-[#14A800]/10 transition-all"
+            >
+              <SiUpwork className="text-xl" />
+            </a>
+          )}
+          {about?.fiverr_url && (
+            <a
+              href={about.fiverr_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Fiverr"
+              className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-gray-400 hover:text-white hover:border-[#1DBF73] hover:bg-[#1DBF73]/10 transition-all"
+            >
+              <SiFiverr className="text-xl" />
             </a>
           )}
         </div>

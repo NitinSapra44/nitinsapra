@@ -1,5 +1,5 @@
 export const siteConfig = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://nitinsapra.dev',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://nitinsapra.in',
   name: 'Nitin Sapra',
   title: 'Nitin Sapra - Full-Stack Developer',
   description:

@@ -19,6 +19,8 @@ export default function AboutAdmin() {
     email: '',
     linkedin_url: '',
     github_url: '',
+    upwork_url: '',
+    fiverr_url: '',
     resume_url: '',
     years_experience: 0,
     total_projects: 0,
@@ -49,6 +51,8 @@ export default function AboutAdmin() {
           email: data.email || '',
           linkedin_url: data.linkedin_url || '',
           github_url: data.github_url || '',
+          upwork_url: data.upwork_url || '',
+          fiverr_url: data.fiverr_url || '',
           resume_url: data.resume_url || '',
           years_experience: data.years_experience,
           total_projects: data.total_projects,
@@ -76,6 +80,8 @@ export default function AboutAdmin() {
         email: formData.email || null,
         linkedin_url: formData.linkedin_url || null,
         github_url: formData.github_url || null,
+        upwork_url: formData.upwork_url || null,
+        fiverr_url: formData.fiverr_url || null,
         resume_url: formData.resume_url || null,
       };
 
@@ -221,6 +227,28 @@ export default function AboutAdmin() {
                 onChange={(e) => setFormData({ ...formData, github_url: e.target.value })}
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary focus:outline-none"
                 placeholder="https://github.com/..."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Upwork URL</label>
+              <input
+                type="url"
+                value={formData.upwork_url}
+                onChange={(e) => setFormData({ ...formData, upwork_url: e.target.value })}
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary focus:outline-none"
+                placeholder="https://www.upwork.com/freelancers/..."
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium mb-2">Fiverr URL</label>
+              <input
+                type="url"
+                value={formData.fiverr_url}
+                onChange={(e) => setFormData({ ...formData, fiverr_url: e.target.value })}
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary focus:outline-none"
+                placeholder="https://www.fiverr.com/..."
               />
             </div>
 
