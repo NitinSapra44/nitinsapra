@@ -40,7 +40,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           <p className="text-primary font-semibold mb-4">{project.subtitle}</p>
         )}
         <div
-          className="text-white mb-6 line-clamp-3 prose prose-invert prose-sm"
+          className="description-content text-white/80 mb-6 line-clamp-3 text-sm leading-relaxed"
           dangerouslySetInnerHTML={{ __html: project.description }}
         />
 

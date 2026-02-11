@@ -99,7 +99,7 @@ export default function HomePage() {
           </p>
           {about?.bio && (
             <div 
-              className="text-lg text-gray-400 mb-8 max-w-lg prose prose-invert"
+              className="description-content text-lg text-gray-400 mb-8 max-w-lg"
               dangerouslySetInnerHTML={{ __html: about.bio }}
             />
           )}

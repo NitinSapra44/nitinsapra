@@ -64,6 +64,24 @@ body {
   color: var(--light);
 }
 
+.ProseMirror p,
+.ProseMirror li,
+.ProseMirror span {
+  color: inherit;
+}
+
+/* Force light text when rendering rich HTML descriptions on dark backgrounds */
+.description-content,
+.description-content p,
+.description-content li,
+.description-content span,
+.description-content h1,
+.description-content h2,
+.description-content h3,
+.description-content h4 {
+  color: inherit !important;
+}
+
 .ProseMirror > * + * {
   margin-top: 0.75em;
 }
