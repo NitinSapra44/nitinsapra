@@ -1,4 +1,5 @@
 import { Project } from '@/lib/types';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   project: Project;
@@ -7,7 +8,10 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-primary hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 transition-all group h-full">
+    <article
+      className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-primary hover:-translate-y-3 hover:shadow-2xl hover:shadow-primary/20 transition-all group h-full"
+      aria-label={`Project: ${project.title}`}
+    >
       <div
         className="h-64 relative flex items-center justify-center text-7xl overflow-hidden"
         style={!project.image_url ? {
@@ -20,15 +24,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         } : undefined}
       >
         {project.image_url ? (
-          <img
+          <Image
             src={project.image_url}
-            alt={project.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            alt={`Screenshot of ${project.title}${project.subtitle ? ` - ${project.subtitle}` : ''}`}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
           project.project_type === 'web' ? '🌐' : '📱'
         )}
-        <span className="absolute top-4 right-4 px-4 py-2 bg-black/80 rounded-full text-xs font-mono uppercase tracking-wider">
+        <span className="absolute top-4 right-4 px-4 py-2 bg-black/80 rounded-full text-xs font-mono uppercase tracking-wider z-10">
           {project.project_type}
         </span>
         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -78,6 +84,6 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

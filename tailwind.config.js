@@ -14,8 +14,8 @@ module.exports = {
         light: '#fafafa',
       },
       fontFamily: {
-        mono: ['JetBrains Mono', 'monospace'],
-        sans: ['Outfit', 'sans-serif'],
+        mono: ['var(--font-jetbrains-mono)', 'monospace'],
+        sans: ['var(--font-outfit)', 'sans-serif'],
       },
     },
   },
