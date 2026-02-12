@@ -2,7 +2,7 @@ import { createServerClient } from '@/lib/supabase/server';
 import HomePageClient from '@/components/HomePageClient';
 import { JsonLd } from '@/components/JsonLd';
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const supabase = createServerClient();
